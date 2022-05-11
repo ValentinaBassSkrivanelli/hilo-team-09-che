@@ -26,6 +26,15 @@ class Director:
             self (Director): an instance of Director.
         """
         self.is_playing = True
+        self.player_score = 300
+        self.total_score = 0
+        self.user_input = ""
+        self.previous_card= 0
+
+        #Call the class to obtain a card value.
+        card = Croupier()
+        card.give_number()
+        self.card =  card.value
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -46,8 +55,19 @@ class Director:
 
         Args:
             self (Director): An instance of Director.
-        """
-        pass
+        """ 
+        #First Card
+        self.previous_card = self.card
+        print(f"The card is: {self.previous_card}")
+        self.user_input = input("Higher or Lower? H/L: ")
+
+        #Second card 
+        card = Croupier()
+        card.give_number()
+        self.card =  card.value
+
+        print(f"The next card is: {self.card}")
+        print()
 
     def do_updates(self):
         """Updates the player's score.
