@@ -1,4 +1,4 @@
-
+from game.croupier import Croupier
 """
     Update the code and the comments as you change the code for your game.  You will be graded on following the
     Rules listed and your program meets all of the Requirements found on 
@@ -22,6 +22,15 @@ class Director:
             self (Director): an instance of Director.
         """
         self.is_playing = True
+        self.player_score = 300
+        self.total_score = 0
+        self.user_input = ""
+        self.previous_card= 0
+
+        #Call the class to obtain a card value.
+        card = Croupier()
+        card.give_number()
+        self.card =  card.value
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -33,14 +42,25 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
-
+            
     def get_inputs(self):
-        """Ask the user if they want to roll.
+        """Ask the user if the next number is Higher or Lower.
 
         Args:
             self (Director): An instance of Director.
-        """
-        pass
+        """ 
+        #First Card
+        self.previous_card = self.card
+        print(f"The card is: {self.previous_card}")
+        self.user_input = input("Higher or Lower? H/L: ")
+
+        #Second card 
+        card = Croupier()
+        card.give_number()
+        self.card =  card.value
+
+        print(f"The next card is: {self.card}")
+        print()
 
     def do_updates(self):
         """Updates the player's score.
