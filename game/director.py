@@ -77,7 +77,7 @@ class Director:
         """
         if not self.is_playing:
             return
-        
+       
         die = die.calculate()
             self.score += die.points
             self.total_score += self.score
