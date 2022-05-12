@@ -26,8 +26,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self.is_playing = True
-        self.player_score = 300
-        self.total_score = 0
+        self.score = 300
         self.user_input = ""
         self.previous_card= 0
 
