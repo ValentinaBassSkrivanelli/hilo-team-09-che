@@ -77,8 +77,11 @@ class Director:
         """
         if not self.is_playing:
             return
-       
+        
         die = die.calculate()
+            self.value = random.randint(1, 13)
+            self.points = 100 if self.value > first_card and user_input == "h" 100 else self.value < first_card and user_input == "l" else -75
+
             self.score += die.points
             self.total_score += self.score
 
