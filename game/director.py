@@ -77,6 +77,11 @@ class Director:
         """
         if not self.is_playing:
             return
+        
+        die = die.calculate()
+            self.score += die.points
+            self.total_score += self.score
+
 
     def do_outputs(self):
         """Displays the next card value. Also asks the player if they want 
