@@ -1,4 +1,5 @@
 from game.croupier import Croupier
+import random
 """
     Update the code and the comments as you change the code for your game.  You will be graded on following the
     Rules listed and your program meets all of the Requirements found on 
@@ -68,7 +69,7 @@ class Director:
         print(f"The next card is: {self.card}")
         print()
 
-    def do_updates(self):
+     def do_updates(self):
         """Updates the player's score.
 
         Args:
@@ -76,6 +77,15 @@ class Director:
         """
         if not self.is_playing:
             return
+   
+
+      def give_number(self):
+        """draws a card (gets a random number for the card value)"""
+
+        #generates a random value to assign to the value attribute
+       
+        self.value = random.randint(1, 13)
+        self.points = 100 if self.value > first_card and user_input == "h"  100 else self.value < first_card and user_input == "l" else -75
 
     def do_outputs(self):
         """Displays the next card value. Also asks the player if they want 
